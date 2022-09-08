@@ -1,47 +1,48 @@
 import random
 import time
-def jugar():
+def play():
     print ("")
-    print ("""\n\tEstamos en una tierra llena de dragones. Delante nuestro,
-    \n\tse ven dos cuevas. En una cueva, el dragon es amigable
-    \n\ty compartira el tesoro contigo. El otro dragon
-    \n\tes codicioso y hambriento, y te va a comer ni bien te vea.""")
+    print ("""\n\tYou are in a land full of dragons. In front of you,
+    \n\tyou see two caves. In one cave, the dragon is friendly
+    \n\tand will share his treasure with you. The other dragon
+    \n\tis greedy and hungry, and will eat you on sight.
+    """)
 
     time.sleep(2)
     print ("")
-    c="vidas"
-    oro = 0
+    c = "vidas"
+    gold = 0
     for i in c*3:
-        cueva = ""
-        while cueva != "1" and cueva != "2":
-            print ("\n\tHa que cueva quieres entrar? 1 o 2?")
-            cueva = input("\n\t")
+        cave = ""
+        while cave != "1" and cave != "2":
+            print ("\n\tWhich cave will you go into? (1 or 2)")
+            cave = input("\n\t")
 
 
-        print ("\n\tTe acercas a la Cueva...")
+        print ("\n\tYou approach the cave...")
         time.sleep(2)
-        print ("\n\tEsta oscuro y tenebroso...")
+        print ("\n\tIt is dark and spooky...")
         time.sleep(2)
-        print ("\n\tUn gran dragon salta delante tuyo, abre su boca y...")
+        print ("\n\tA large dragon jumps out in front of you! He opens his jaws and...")
         print ("")
         time.sleep(2)
-        FriendlyCueva = random.randint (1,2)
+        FriendlyCave = random.randint (1,2)
 
     
     
-        if cueva == str(FriendlyCueva):
-            print ("\n\tTe entrega el tesoro...")
-            oro += 100
-            print("\n\tTu oro actual es: " + str(oro))
-            if oro == 1000:
+        if cave == str(FriendlyCave):
+            print ("\n\tGobbles you down in one bite!")
+            gold += 100
+            print("\n\tTu oro actual es: " + str(gold))
+            if gold == 1000:
                 print("Ganaste!")
                 break
-        elif cueva != str(FriendlyCueva):
+        elif cave != str(FriendlyCave):
             print ("\n\tEl dragon te come de un bocado....")
-            print("\n\tPerdiste el oro acumulado!: " + str(oro))
-            n=input("\n\tQuieres juegar de nuevo?: \n\tSi o No \n\t: ")
-            if n == "s" or n == ("si"):
-                jugar()
-            elif n == "n" or n == ("no"):
+            print("\n\tPerdiste el oro acumulado!: " + str(gold))
+            PlayAgain = input("\n\tDo you want to play again?: \n\t(yes or no) \n\t ")
+            if PlayAgain == "y" or PlayAgain == "yes":
+                play()
+            elif PlayAgain == "n" or PlayAgain == "no":
                 break
-jugar()
+play()
